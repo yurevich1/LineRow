@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LineRow_Example' do
+  pod 'LineRow', :path => '../'
+
+  target 'LineRow_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

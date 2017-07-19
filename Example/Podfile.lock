@@ -1,0 +1,19 @@
+PODS:
+  - Eureka (3.0.0)
+  - LineRow (0.1.0):
+    - Eureka (~> 3.0)
+
+DEPENDENCIES:
+  - LineRow (from `../`)
+
+EXTERNAL SOURCES:
+  LineRow:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
+  LineRow: f8be5bcd61154cb4b4e67993a55e149db665fc26
+
+PODFILE CHECKSUM: 7af78c78b4d7ee75a6ab689a4a8adb7bd86eb260
+
+COCOAPODS: 1.2.1
