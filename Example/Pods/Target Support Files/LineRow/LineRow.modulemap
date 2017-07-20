@@ -1,0 +1,6 @@
+framework module LineRow {
+  umbrella header "LineRow-umbrella.h"
+
+  export *
+  module * { export * }
+}
