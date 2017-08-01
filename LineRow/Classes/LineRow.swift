@@ -10,9 +10,24 @@ import UIKit
 import Eureka
 
 // MARK: LineCell
+
 public class LineViewCell: Cell<UIColor> {
     
+    fileprivate static let DEFAULT_HEIGHT = CGFloat(3)
     
+    open lazy var uiView: UIView = { [unowned self] in
+        let uiView = UIView()
+        
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        uiView.contentMode = .redraw
+        uiView.backgroundColor = .black
+        
+        self.contentView.addSubview(uiView)
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[uiView]-0-|", options: [], metrics: nil, views: ["uiView": uiView]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[uiView]-0-|", options: [], metrics: nil, views: ["uiView": uiView]))
+        
+        return uiView
+        }()
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,50 +36,35 @@ public class LineViewCell: Cell<UIColor> {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public var uiview: UIView = UIView()
-    fileprivate static let h = CGFloat(3)
+
     
     open override func setup() {
         super.setup()
-        height = { LineViewCell.h }
-        
-        uiview = UIView()
-        uiview.translatesAutoresizingMaskIntoConstraints = false
-        uiview.contentMode = .redraw
-        uiview.backgroundColor = row.value
-        
-        self.addSubview(uiview)
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[uiview]-0-|", options: [], metrics: nil, views: ["uiview": uiview]))
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[uiview]-0-|", options: [], metrics: nil, views: ["uiview": uiview]))
-        
-        
-        uiview.layoutIfNeeded()
+        height = { LineViewCell.DEFAULT_HEIGHT }
+        uiView.backgroundColor = row.value
+        uiView.layoutIfNeeded()
     }
     
     open override func update() {
         super.update()
         textLabel?.text = nil
         detailTextLabel?.text = nil
-        uiview.backgroundColor = row.value //row.displayValueFor?(row.value)
+        uiView.backgroundColor = row.value
     }
     
     open override func cellCanBecomeFirstResponder() -> Bool {
-        return false//!row.isDisabled && floatLabelTextField.canBecomeFirstResponder
+        return false
     }
     
     open override func cellBecomeFirstResponder(withDirection direction: Direction) -> Bool {
-        return uiview.becomeFirstResponder()
+        return uiView.becomeFirstResponder()
     }
     
     open override func cellResignFirstResponder() -> Bool {
-        return uiview.resignFirstResponder()
+        return uiView.resignFirstResponder()
     }
     
 }
-
-
-
 
 public class LineCell : LineViewCell, CellType {
     
@@ -84,5 +84,6 @@ public class LineCell : LineViewCell, CellType {
 public final class LineRow: Row<LineCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
+        value = .black
     }
 }

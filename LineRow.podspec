@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LineRow'
-  s.version          = '1.0'
+  s.version          = '1.0.2'
   s.summary          = 'LineRow just creates a simple colored row for Eureka project.'
 
 # This description is used to generate tags and improve search results.

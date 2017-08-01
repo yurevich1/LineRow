@@ -15,7 +15,6 @@ By [Petrukhin Vyacheslav](http://slava.online).
 * [Examples](#examples)
 * [Installation](#installation)
 * [Customization](#customization)
-* [LineRow parameters](#nativeexpressrow-parameters)
 
 ## Introduction
 
@@ -41,7 +40,7 @@ override func viewDidLoad() {
 super.viewDidLoad()
 
 form +++ Section()
-<<< LineColor()  {
+<<< LineRow()  {
 $0.value = .black
 }
 }
@@ -63,8 +62,6 @@ Before contribute check the [CONTRIBUTING](CONTRIBUTING.md) file for more info.
 ## Examples
 
 Follow these steps to run Example project:
-* First of all you have to register your iOS application in the [AdMob](https://admob.com) and [Firebase](https://firebase.google.com)
-* You have to create both `"YOUR_ADMOB_APP_ID"` and `"your-admob-unit-id"`.
 * Clone LineRow repository
 * Open terminal in the downloaded folder and run bin/setup script
 * Open LineRow workspace
@@ -79,7 +76,7 @@ Follow these steps to run Example project:
 To install LineRow, simply add the following line to your Podfile:
 
 ```ruby
-pod 'LineRow', '~> 1.0'
+pod 'LineRow', '~> 1.0.2'
 ```
 
 #### Carthage
@@ -89,7 +86,7 @@ pod 'LineRow', '~> 1.0'
 To install LineRow, simply add the following line to your Cartfile:
 
 ```ogdl
-github "EurekaCommunity/LineRow" ~> 1.0
+github "EurekaCommunity/LineRow" ~> 1.0.2
 ```
 
 
